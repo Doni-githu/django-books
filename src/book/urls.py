@@ -1,0 +1,12 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.BookView.as_view({"get": "list", "post": "create"})),
+    path(
+        "<int:pk>/",
+        views.BookView.as_view(
+            {"put": "update", "delete": "destroy", "get": "retrieve"}
+        ),
+    ),
+]

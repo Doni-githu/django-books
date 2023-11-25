@@ -1,0 +1,25 @@
+# Byte-compiled / optimized Python files
+*.pyc
+__pycache__/
+
+# Django project settings
+*.env
+*.sqlite3
+
+# Media and static files
+/media/
+/static/
+
+# Database files
+db.sqlite3
+
+# Virtual environment
+/venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
