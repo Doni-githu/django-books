@@ -1,11 +1,13 @@
-from __future__ import absolute_import, unicode_literals
 from django.core.mail import send_mail
+from config.settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 from celery import shared_task
+from config.celery import app
 
-@shared_task
+@app.task
 def send_welcome_email(email):
     subject = 'Welcome to My Website'
-    message = 'Thank you for joining our website. We hope you have a great experience!'
-    from_email = 'ddonierov96@gmail.com'
+    message = 'Thank you for joining our website. We hope you have a great experience!; Cool'
+    from_email = EMAIL_HOST_USER
     recipient_list = [email]
-    send_mail(subject, message, from_email, recipient_list)
+    result = send_mail(subject, message, from_email, recipient_list)
+    return True
